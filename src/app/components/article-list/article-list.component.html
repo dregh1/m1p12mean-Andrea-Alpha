@@ -1,0 +1,33 @@
+<div class="article-form">
+    <div>
+        @for (article of articles; track article._id) {
+        <div [style.backgroundColor]="this.getCategoryColor(article.categoryId)" style="padding: 10px; margin: 5px; color: rgb(0, 0, 0);" >
+            <h2>{{ article.title }}</h2>
+            <p>{{ article.content }}</p>
+            <button (click)="deleteArticle(article._id)">Supprimer</button>
+        </div>
+        }
+    </div>
+       
+    <h2>Ajouter un article</h2>
+    <form (ngSubmit)="addArticle()" #articleForm="ngForm">
+        <div>
+            <label for="title">Titre :</label>
+            <input type="text" id="title" name="title" [(ngModel)]="newArticle.title" required />
+        </div>
+        <div>
+            <label for="content">Contenu :</label>
+            <textarea id="content" name="content" [(ngModel)]="newArticle.content" required></textarea>
+        </div>
+        <div>
+            <label for="category">Categorie :</label>
+            <select [(ngModel)]="newArticle.categoryId"  name="categoriesOption">
+                @for (category of categories; track category._id) {
+                    <option value="{{category._id}}">{{category.name}}</option>
+                    }
+                   
+            </select>
+        </div>
+        <button type="submit" [disabled]="articleForm.invalid">Ajouter</button>
+    </form>
+</div>
