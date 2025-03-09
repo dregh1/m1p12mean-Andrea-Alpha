@@ -1,5 +1,5 @@
 <div class="article-form">
-    <div>
+    <!-- <div>
         @for (article of articles; track article._id) {
         <div [style.backgroundColor]="this.getCategoryColor(article.categoryId)" style="padding: 10px; margin: 5px; color: rgb(0, 0, 0);" >
             <h2>{{ article.title }}</h2>
@@ -7,7 +7,7 @@
             <button (click)="deleteArticle(article._id)">Supprimer</button>
         </div>
         }
-    </div>
+    </div> -->
        
     <h2>Ajouter un article</h2>
     <form (ngSubmit)="addArticle()" #articleForm="ngForm">
@@ -19,7 +19,7 @@
             <label for="content">Contenu :</label>
             <textarea id="content" name="content" [(ngModel)]="newArticle.content" required></textarea>
         </div>
-        <div>
+        <!-- <div>
             <label for="category">Categorie :</label>
             <select [(ngModel)]="newArticle.categoryId"  name="categoriesOption">
                 @for (category of categories; track category._id) {
@@ -27,7 +27,7 @@
                     }
                    
             </select>
-        </div>
+        </div> -->
         <button type="submit" [disabled]="articleForm.invalid">Ajouter</button>
     </form>
 </div>

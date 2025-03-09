@@ -19,8 +19,8 @@ export class ArticleListComponent {
   constructor(private articleService: ArticleService, private CategoryService: CategoryService) {}
 
   ngOnInit(): void {
-    this.loadArticles();
-    this.loadCategories();
+    // this.loadArticles();
+    // this.loadCategories();
   }
 
   loadArticles(): void {
